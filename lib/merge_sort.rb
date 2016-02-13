@@ -4,7 +4,7 @@ class MergeSort
     sorted_array = []
     index1 = 0
     index2 = 0
-    1.upto(num_comparisons) do
+    1.upto(num_comparisons-1) do
       if array1[index1] == nil
         sorted_array.push(array2[index2])
         index2 += 1
@@ -19,6 +19,7 @@ class MergeSort
         index2 += 1 if (index2 < array2.length - 1)
       end
     end
+    array1[-1] > array2[-1] ? sorted_array.push(array1[-1]) : sorted_array.push(array2[-1])
     sorted_array
   end
 
