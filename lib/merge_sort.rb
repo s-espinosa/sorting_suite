@@ -1,61 +1,35 @@
 class MergeSort
-  def sort(array1, array2)
-    num_comparisons = array1.length + array2.length
-    sorted_array = []
-    index1 = 0
-    index2 = 0
-    1.upto(num_comparisons-1) do
-      if array1[index1] == nil
-        sorted_array.push(array2[index2])
-        index2 += 1
-      elsif array2[index2] == nil
-        sorted_array.push(array1[index1])
-        index1 += 1
-      elsif array1[index1] <= array2[index2]
-        sorted_array.push(array1[index1])
-        index1 += 1 if (index1 < array1.length - 1)
-      else
-        sorted_array.push(array2[index2])
-        index2 += 1 if (index2 < array2.length - 1)
-      end
-    end
-    array1[-1] > array2[-1] ? sorted_array.push(array1[-1]) : sorted_array.push(array2[-1])
-    sorted_array
+  def sort(array, first_index = 0, last_index = array.length-1)
+    midpoint = (first_index + last_index) / 2
+    left = array[first_index..midpoint]
+    right = array[midpoint + 1..last_index]
+
+    left = sort(left) if left.length != 1
+    right = sort(right) if right.length != 1
+    merge(left, right)
   end
 
-  # def sort(items, beginning_index = 0, end_index = 3)
-  #   beginning_item = items[beginning_index]
-  #   end_item = items[end_index]
-  #   sorted_array = []
-  #   if end_item < beginning_item
-  #     sorted_array[0] = end_item
-  #     sorted_array[1] = beginning_item
-  #   else
-  #     sorted_array[0] = beginning_item
-  #     sorted_array[1] = end_item
-  #   end
-  #   sorted_array
-  # end
+  def merge(left, right)
+    numbers_to_push = left.length + right.length
+    left_index = 0
+    right_index = 0
+    sorted = []
 
-
-
-
-  # def sort(items, beginning_index = 0, end_index = (items.length - 1))
-  #   if beginning_index != end_index
-  #     sort(items, beginning_index, end_index/2)
-  #   elsif end_index/2 != end_index
-  #     sort(items, end_index/2, end_index)
-  #   end
-  #   merge(items, beginning_index, end_index)
-  #   items
-  # end
-  #
-  # def merge(items, beginning_index, end_index)
-  #   beginning_item = items[beginning_index]
-  #   end_item = items[end_index]
-  #   if end_item < beginning_item
-  #     items[beginning_index] = end_item
-  #     items[end_index] = beginning_item
-  #   end
-  # end
+    1.upto(numbers_to_push) do
+      if left[left_index] == nil
+        sorted << right[right_index]
+        right_index += 1
+      elsif right[right_index] == nil
+        sorted << left[left_index]
+        left_index += 1
+      elsif left[left_index] < right[right_index]
+        sorted << left[left_index]
+        left_index += 1
+      else
+        sorted << right[right_index]
+        right_index += 1
+      end
+    end
+    sorted
+  end
 end
