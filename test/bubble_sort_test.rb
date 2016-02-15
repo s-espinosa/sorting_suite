@@ -20,6 +20,15 @@ class BubbleSortTest < Minitest::Test
     assert_equal expected, actual
   end
 
+  def test_it_sorts_1000_numbers
+    sorter = BubbleSort.new
+    random_array = (1..1000).to_a.shuffle
+
+    actual = sorter.sort(random_array)
+    expected = (1..1000).to_a
+    assert_equal expected, actual
+  end
+
   def test_it_checks_that_all_items_passed_are_the_same_type
     skip
   end

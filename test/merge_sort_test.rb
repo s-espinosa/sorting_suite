@@ -4,6 +4,18 @@ require 'minitest/pride'
 require_relative '../lib/merge_sort.rb'
 
 class MergeSortTest < Minitest::Test
+  def test_it_merges_two_sorted_arrays_into_a_single_sorted_array
+    sorter = MergeSort.new
+
+    array1 = [1, 4, 7, 10]
+    array2 = [2, 3, 8, 9]
+
+    actual = sorter.merge(array1, array2)
+    expected = [1, 2, 3, 4, 7, 8, 9, 10]
+
+    assert_equal expected, actual
+  end
+
   def test_it_sorts_two_numbers_passed_to_it
     sorter = MergeSort.new
 
@@ -26,6 +38,15 @@ class MergeSortTest < Minitest::Test
 
     actual = sorter.sort(["d", "b", "a", "c"])
     expected = ["a", "b", "c", "d"]
+    assert_equal expected, actual
+  end
+
+  def test_it_sorts_1000_numbers
+    sorter = MergeSort.new
+    random_array = (1..1000).to_a.shuffle
+
+    actual = sorter.sort(random_array)
+    expected = (1..1000).to_a
     assert_equal expected, actual
   end
 end
