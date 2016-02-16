@@ -1,5 +1,6 @@
 class MergeSort
   def sort(array, first_index = 0, last_index = array.length-1)
+    return [] if array == []
     midpoint = (first_index + last_index) / 2
     left = array[first_index..midpoint]
     right = array[midpoint + 1..last_index]

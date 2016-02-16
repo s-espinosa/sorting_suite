@@ -2,6 +2,7 @@ require 'pry'
 
 class InsertionSort
   def sort(items)
+    return [] if items == []
     sorted = [items.shift]
     until items[0] == nil
       item_to_add = items.shift
