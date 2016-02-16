@@ -49,4 +49,22 @@ class MergeSortTest < Minitest::Test
     expected = (1..1000).to_a
     assert_equal expected, actual
   end
+
+  def test_it_sorts_reversed_arrays
+    sorter = MergeSort.new
+    reversed_array = (1..1000).to_a.reverse
+
+    actual = sorter.sort(reversed_array)
+    expected = (1..1000).to_a
+    assert_equal expected, actual
+  end
+
+  def test_it_returns_empty_arrays_when_passed_empty_arrays
+    sorter = MergeSort.new
+    empty_array = []
+
+    actual = sorter.sort(empty_array)
+    expected = []
+    assert_equal expected, actual
+  end
 end
