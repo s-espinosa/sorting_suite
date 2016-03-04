@@ -3,10 +3,10 @@
 Sorting Suite is a Module 1 assignment completed for the [Turing School of Software Design](https://www.turing.io/). Included in this repo:
 
 * Classes for four separate sorting algorithms and an alternative implementation of one of those algorithms.
-* Namespaced Benchmarking class that allow users to determine which of the sorting algorithms worked the fastest on a given hash.
+* Namespaced Benchmarking class that allows users to determine which of the sorting algorithms worked the fastest on a given array.
 * Testing files for each of the sorting algorithms.
 
-Each of the different sort algorithms is included as a separate class. The alt_insertion_sort file includes an insertion sort algorithm that sorts the items using a second array.
+Each of the different sort algorithms is included as a separate class. The alt_insertion_sort file includes an insertion sort algorithm that sorts the items using a second array (as opposed to in place in the passed array).
 
 Each of the sort algorithms is run by requiring the class in a given file and passing an array to the 'new' method. For example:
 
