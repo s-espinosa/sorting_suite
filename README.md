@@ -1,6 +1,6 @@
 #Sorting Suite
 
-Sorting Suite is a Module 1 assignment that completed for the [Turing School of Software Design](https://www.turing.io/). Included in this repo:
+Sorting Suite is a Module 1 assignment completed for the [Turing School of Software Design](https://www.turing.io/). Included in this repo:
 
 * Classes for four separate sorting algorithms and an alternative implementation of one of those algorithms.
 * Namespaced Benchmarking class that allow users to determine which of the sorting algorithms worked the fastest on a given hash.
